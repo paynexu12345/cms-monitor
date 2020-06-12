@@ -1,0 +1,72 @@
+@font-face {
+    font-family: "Acumin_Bold";
+    src: url("../font/acumin/acumin-bold.eot") format("eot"),
+      url('../font/acumin/acumin-bold.ttf') format('truetype'),
+      url("../font/acumin/acumin-bold.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "Acumin_Light";
+    src: url("../font/acumin/acumin-light.eot") format("eot"),
+    url('../font/acumin/acumin-light.ttf') format('truetype'),
+      url("../font/acumin/acumin-light.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "Acumin_Medium";
+    src: url("../font/acumin/acumin-medium.eot") format("eot"),
+    url('../font/acumin/acumin-medium.ttf') format('truetype'),
+      url("../font/acumin/acumin-medium.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "Acumin_Regular";
+    src: url("../font/acumin/acumin-regular.eot") format("eot"),
+    url('../font/acumin/acumin-regular.ttf') format('truetype'),
+      url("../font/acumin/acumin-regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "Acumin_SemiBold";
+    src: url("../font/acumin/acumin-semibold.eot") format("eot"),
+    url('../font/acumin/acumin-semibold.ttf') format('truetype'),
+      url("../font/acumin/acumin-semibold.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "Acumin_ExtraLight";
+    src: url("../font/acumin/acumin-extra-light.eot") format("eot"),
+    url('../font/acumin/acumin-extra-light.ttf') format('truetype'),
+      url("../font/acumin/acumin-extra-light.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "Acumin_Thin";
+    src: url("../font/acumin/acumin-thin.eot") format("eot"),
+    url('../font/acumin/acumin-thin.ttf') format('truetype'),
+      url("../font/acumin/acumin-thin.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "Acumin_Black";
+    src: url("../font/acumin/acumin-black.eot") format("eot"),
+      url('../font/acumin/acumin-black.ttf') format('truetype'),
+      url("../font/acumin/acumin-black.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  

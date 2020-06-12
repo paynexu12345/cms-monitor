@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="font/font.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <!-- <link rel="stylesheet" href="font/iconfont/iconfont.css"> -->
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1878800_125881arm11h.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body> 
+    <style>
+        
+        .tip
+        {
+            border: 1px solid #ddd;
+        }
+        
+    </style>
+    <div class="page-wrapper">
+        <div class="sidebar">
+            <ul class="sidebar-list">
+                <li class="item">
+                    <a href="javascript:;" class="">Dashboard</a>
+                </li>
+                <li class="item">
+                    <a href="javascript:;" class="">Log Entity</a>
+                </li>
+                <li class="item">
+                    <a href="javascript:;" class="">Thread Dump</a>
+                </li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="p25">
+                <div class="tips">
+                    <span class="iconfont icon-info"></span>
+                    <div>
+                        <div>
+                            You will see many things about CMS components here, such as health check, load/memory/thread metrics or dump,logging, etc..
+                        </div>
+                        <div>
+                            Click ... to see details about that component.
+                        </div>
+                    </div>
+                </div>
+                <div class="es-monitor-root">
+                    <div class="es-monitor-container">
+                        <div class="es-monitor-item" es-monitor-name="cms scheduler">
+                            <div class="es-monitor-component">
+                                <div class="es-monitor-name">CMS Scheduler</div>
+                            </div>
+                            
+                        </div>
+                        <div class="es-monitor-item" es-monitor-name="image proxy">
+                            <div class="es-monitor-component" >
+                                <div class="es-monitor-name">Image Proxy</div>
+                            </div>
+                        </div>
+                        <div class="es-monitor-item" es-monitor-name="upload server">
+                            <div class="es-monitor-component">
+                                <div class="es-monitor-name">Upload Server</div>
+                            </div>
+                        </div>
+                        <div class="es-monitor-item" es-monitor-name="cms">
+                            <div class="es-monitor-component">
+                                <div class="es-monitor-name">CMS</div>
+                                <div class="es-monitor-node-container">
+                                    <div class="es-monitor-node">
+                                        <div class="es-monitor-name">Node1</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="es-monitor-item" es-monitor-name="content api">
+                            <div class="es-monitor-component">
+                                <div class="es-monitor-name">Content API</div>
+                            </div>
+                        </div>
+                        <div class="es-monitor-item" es-monitor-name="admin api">
+                            <div class="es-monitor-component">
+                                <div class="es-monitor-name">Admin API</div>
+                            </div>
+                        </div>
+                    </div>
+                    <canvas id="monitorCanvas" class="es-monitor-canvas"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        class MonitorItemComponent
+        {
+            getRelativeTop(){
+                return 
+            }
+
+        }
+        var c = document.getElementById("monitorCanvas");
+        var ctx = c.getContext("2d");
+        c.width = $(".es-monitor-root").outerWidth();
+        c.height = $(".es-monitor-root").outerHeight();
+        ctx.lineWidth = 1;
+        ctx.strokeStyle ='#ddd';
+        
+        function getRelativeX(x, $relative)
+        {
+
+        }
+        function getRelativeY(y, $relative)
+        {
+            
+        }
+        function drawLinkLine(from, to)
+        {
+            var $from = $("[es-monitor-name='" + from + "']");
+            var $to = $("[es-monitor-name='" + to + "']");
+            var point_from = {
+                x:0,
+                y:0
+            }
+            var point_to = {
+                x:0,
+                y:0
+            }
+            var pos_root = $(".es-monitor-root")[0].getBoundingClientRect();
+            var pos_from = $from[0].getBoundingClientRect();
+            var pos_to = $to[0].getBoundingClientRect();
+
+            point_from.x = pos_from.left + pos_from.width / 2 - pos_root.left ;
+            point_to.x = pos_to.left + pos_to.width / 2 - pos_root.left ;
+            //If from is above
+            if(pos_from.top < pos_to.top)
+            {
+                point_from.y = pos_from.bottom - pos_root.top;
+                point_to.y = pos_to.top - pos_root.top;
+            }
+            else if(pos_from.top == pos_to.top)
+            {
+
+            }
+            // from is under
+            else
+            {
+                point_from.y = pos_from.top - pos_root.top;
+                point_to.y = pos_to.bottom - pos_root.top;
+            }
+            ctx.moveTo(point_from.x, point_from.y);
+            ctx.lineTo(point_to.x, point_to.y);
+            ctx.stroke();
+        }
+        drawLinkLine("cms scheduler", "cms");
+        drawLinkLine("image proxy", "cms");
+        drawLinkLine("cms", "upload server");
+    </script>
+</body>
+</html>

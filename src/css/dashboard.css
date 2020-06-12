@@ -1,0 +1,36 @@
+.es-monitor-root {
+  position: relative;
+}
+.es-monitor-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+}
+.es-monitor-item {
+  width: 30%;
+  margin: 10px 10px 80px 10px;
+}
+.es-monitor-component {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+.es-monitor-node {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+.es-monitor-name {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.es-monitor-node-container {
+  margin-top: 20px;
+}
+.es-monitor-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}

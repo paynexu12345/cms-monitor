@@ -1,0 +1,51 @@
+{
+  "id": "1878800",
+  "name": "cms-monitor",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "4063560",
+      "name": "info-circle",
+      "font_class": "info",
+      "unicode": "e757",
+      "unicode_decimal": 59223
+    },
+    {
+      "icon_id": "141594",
+      "name": "dashboard",
+      "font_class": "dashboard",
+      "unicode": "e6f7",
+      "unicode_decimal": 59127
+    },
+    {
+      "icon_id": "663142",
+      "name": "more",
+      "font_class": "i-more",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "1026284",
+      "name": "通知",
+      "font_class": "notify",
+      "unicode": "e639",
+      "unicode_decimal": 58937
+    },
+    {
+      "icon_id": "3248700",
+      "name": "日志",
+      "font_class": "log",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "7789615",
+      "name": "线段",
+      "font_class": "thread",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    }
+  ]
+}
