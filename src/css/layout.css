@@ -1,9 +1,0 @@
-.page-wrapper {
-  display: flex;
-}
-.sidebar {
-  width: 150px;
-}
-.main {
-  flex-grow: 1;
-}

@@ -1,26 +1,43 @@
 const { series, src, dest, watch, parallel } = require("gulp");
-var gulpless = require("gulp-less");
+var lessc = require("gulp-less");
 var browserSync = require("browser-sync");
 var concat = require("gulp-concat");
 
-function lessc() 
+function compileLess() 
 {
     return src(["src/less/*.less"])
-        .pipe(gulpless())
-        .pipe(dest("src/css"));
+        .pipe(lessc())
+        .pipe(dest("dist/css"));
 }
 
 function concatCss()
 {
-    return src(["src/css/*.css"])
-        .pipe(concat())
-        .pipe(dest("src/dist/css"));
+    return src(["dist/font/font.css","dist/css/reset.css", "dist/css/layout.css", "dist/css/dashboard.css"])
+        .pipe(concat("main.css"))
+        .pipe(dest("dist/css"));
+}
+
+function concatJs()
+{
+    return src(["src/js/ext/*.js"])
+    .pipe(concat("main.js"))
+    .pipe(dest("dist/js"));
+}
+
+function copyFont()
+{
+    return src(["src/font/**/*"]).pipe(dest("dist/font"))
+}
+
+function copyHtml()
+{
+    return src(["src/index.html"]).pipe(dest("dist"))
 }
 
 function watchAll()
 {
-    watch("src/less/*.less", parallel(lessc, concatCss, browserSync.reload, watchAll));
-    watch(["*.js", "*.html"], parallel(browserSync.reload, watchAll));
+    watch("src/less/*.less", parallel(compileLess, concatCss, copyFont, copyHtml, concatJs, browserSync.reload, watchAll));
+    watch(["*.js", "src/**/*.html"], parallel(copyHtml, concatJs, browserSync.reload, watchAll));
 }
 
 function serve() 
@@ -28,8 +45,8 @@ function serve()
     watchAll();
     return browserSync({
         server: {
-            baseDir: "src"
+            baseDir: "dist"
         }
     });
 }
-exports.serve = series(lessc, concatCss, serve);
+exports.serve = series(compileLess, concatCss, copyFont, copyHtml, concatJs, serve);
